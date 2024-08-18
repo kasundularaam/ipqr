@@ -6,7 +6,7 @@ from io import StringIO
 
 
 def get_local_ip():
-    # Method 1: Using netifaces
+
     try:
         interfaces = netifaces.interfaces()
         for interface in interfaces:
@@ -16,9 +16,8 @@ def get_local_ip():
                 if ip != '127.0.0.1':
                     return ip
     except:
-        pass  # If netifaces fails, we'll try the next method
+        pass
 
-    # Method 2: Socket method
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
@@ -26,15 +25,14 @@ def get_local_ip():
         s.close()
         return ip
     except:
-        pass  # If socket method fails, we'll try the next method
+        pass
 
-    # Method 3: getaddrinfo method
     try:
         return socket.getaddrinfo(socket.gethostname(), None, socket.AF_INET)[0][4][0]
     except:
-        pass  # If all methods fail, we'll return localhost
+        pass
 
-    return "127.0.0.1"  # Fallback to localhost if all methods fail
+    return "127.0.0.1"
 
 
 def generate_qr_code(data):
