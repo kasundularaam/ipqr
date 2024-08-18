@@ -8,17 +8,6 @@ from io import StringIO
 def get_local_ip():
 
     try:
-        interfaces = netifaces.interfaces()
-        for interface in interfaces:
-            addr = netifaces.ifaddresses(interface).get(netifaces.AF_INET)
-            if addr:
-                ip = addr[0]['addr']
-                if ip != '127.0.0.1':
-                    return ip
-    except:
-        pass
-
-    try:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
         ip = s.getsockname()[0]
@@ -28,7 +17,14 @@ def get_local_ip():
         pass
 
     try:
-        return socket.getaddrinfo(socket.gethostname(), None, socket.AF_INET)[0][4][0]
+        interfaces = netifaces.interfaces()
+        for interface in interfaces:
+            addr = netifaces.ifaddresses(interface).get(netifaces.AF_INET)
+            if addr:
+                for item in addr:
+                    ip = item['addr']
+                    if ip != '127.0.0.1' and not ip.startswith('169.254'):
+                        return ip
     except:
         pass
 
