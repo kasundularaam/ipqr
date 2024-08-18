@@ -1,6 +1,6 @@
 # 📱 IPQR 🖥️
 
-IPQR is a magical ✨ command-line tool that generates QR codes for your local server URLs. It automatically detects your local IP address and creates a QR code that can be scanned to quickly access your local server from mobile devices. No more typing long IP addresses on your phone! 🚀
+IPQR is a magical ✨ cross-platform command-line tool that generates QR codes for your local server URLs. It automatically detects your local IP address and creates a QR code that can be scanned to quickly access your local server from mobile devices. No more typing long IP addresses on your phone! 🚀
 
 ## 🌟 Features
 
@@ -8,6 +8,7 @@ IPQR is a magical ✨ command-line tool that generates QR codes for your local s
 - 🎨 ASCII QR code generation
 - 🔢 Custom port support
 - 🚀 Easy to use command-line interface
+- 🐧 Cross-platform support (Windows, macOS, Linux)
 
 ## 🛠️ Installation
 
@@ -16,6 +17,8 @@ You can install IPQR easily using pip:
 ```
 pip install ipqr
 ```
+
+This works on Windows, macOS, and Linux!
 
 ## 🚀 Usage
 
@@ -68,6 +71,10 @@ Scan this QR code to access the local server:
 ```
 
 Just scan the QR code with your mobile device, and you're good to go! 📱✨
+
+## 🐧 Linux Users
+
+IPQR is fully compatible with Linux systems! It uses smart IP detection methods that work across different Linux distributions. If you encounter any issues, please report them on our GitHub page.
 
 ## 🤝 Contributing
 
