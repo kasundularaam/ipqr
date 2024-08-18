@@ -1,0 +1,4 @@
+venv/
+ipqr/__pycache__
+build/
+dist/
